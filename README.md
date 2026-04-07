@@ -2,7 +2,7 @@
 Infilion- Tenforce Automation Practicle Task
 
 ✔ How to Run
-Go to Project Directory\mvn clean test
+Open Command Prompt and Type CD Go to Project Directory\mvn clean test
 
 ✔ Framework Choice Justification
 Selenium for UI automation
