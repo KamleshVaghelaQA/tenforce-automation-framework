@@ -30,25 +30,39 @@ pipeline {
                 bat 'mvn package'
             }
         }
-        
-        stage('List Reports') {
-       steps {
-            bat 'dir /s target\\*.html'
+
+        stage('Verify Reports') {
+            steps {
+                bat 'dir /s target'
+            }
         }
-     }
-  }
+    }
+
     post {
+
         always {
+
             junit '**/surefire-reports/*.xml'
-            
-               publishHTML([
-                allowMissing: true,
+
+            publishHTML([
+                allowMissing: false,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
-                reportDir: 'test-output',
+                reportDir: 'target',
                 reportFiles: 'ExtentReport.html',
-                reportName: 'Extent Test Report'
+                reportName: 'Extent Automation Report'
             ])
+
+            archiveArtifacts artifacts: 'target/*.html',
+                             fingerprint: true
+        }
+
+        success {
+            echo 'Build Successful'
+        }
+
+        failure {
+            echo 'Build Failed'
         }
     }
 }
