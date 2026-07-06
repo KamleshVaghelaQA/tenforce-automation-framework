@@ -30,8 +30,13 @@ pipeline {
                 bat 'mvn package'
             }
         }
-    }
-
+        
+        stage('List Reports') {
+       steps {
+            bat 'dir /s target\\*.html'
+        }
+     }
+  }
     post {
         always {
             junit '**/surefire-reports/*.xml'
