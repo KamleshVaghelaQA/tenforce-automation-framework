@@ -38,31 +38,22 @@ pipeline {
         }
     }
 
-    post {
+  post {
+    always {
 
-        always {
+        junit '**/surefire-reports/*.xml'
 
-            junit '**/surefire-reports/*.xml'
+        publishHTML([
+            allowMissing: true,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: 'target',
+            reportFiles: 'ExtentReport.html',
+            reportName: 'Extent Automation Report'
+        ])
 
-            publishHTML([
-                allowMissing: false,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'target',
-                reportFiles: 'ExtentReport.html',
-                reportName: 'Extent Automation Report'
-            ])
-
-            archiveArtifacts artifacts: 'target/*.html',
-                             fingerprint: true
-        }
-
-        success {
-            echo 'Build Successful'
-        }
-
-        failure {
-            echo 'Build Failed'
-        }
-    }
+        archiveArtifacts artifacts: 'target/screenshots/*.png',
+                         fingerprint: true
+      }
+  }
 }
