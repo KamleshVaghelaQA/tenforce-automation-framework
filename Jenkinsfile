@@ -54,6 +54,7 @@ pipeline {
 
         archiveArtifacts artifacts: 'target/screenshots/*.png',
                          fingerprint: true
+                         allowEmptyArchive: true
       }
   }
 }
