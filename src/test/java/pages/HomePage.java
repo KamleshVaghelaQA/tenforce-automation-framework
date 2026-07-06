@@ -19,7 +19,7 @@ public class HomePage {
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // ✅ Initialize wait
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(30)); // ✅ Initialize wait
 	}
 
 	private By agreeButton = By.xpath("//button[contains(text(),'I Agree')]");
@@ -54,7 +54,7 @@ public class HomePage {
 	}
 	
 	public void clickCareer() {
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	    Actions actions = new Actions(driver);
 
 	    try {
