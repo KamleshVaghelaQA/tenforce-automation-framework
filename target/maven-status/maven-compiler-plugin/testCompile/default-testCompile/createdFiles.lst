@@ -5,5 +5,4 @@ pages\CareerPage.class
 pages\HomePage.class
 runners\TestRunner.class
 utils\ConfigReader.class
-utils\ExtentManager.class
 hooks\Hooks.class
