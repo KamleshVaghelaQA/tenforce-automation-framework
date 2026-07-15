@@ -1,5 +1,5 @@
 # tenforce-automation-framework
-Infilion- Tenforce Automation Practicle Task
+Web Automation Testing Demo 
 
 ✔ How to Run
 Open Command Prompt and Type CD Go to Project Directory\mvn clean test
