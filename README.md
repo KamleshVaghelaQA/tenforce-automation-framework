@@ -1,4 +1,4 @@
-# tenforce-automation-framework
+# Web-automation-framework
 Web Automation Testing Demo 
 
 ✔ How to Run
